@@ -55,8 +55,8 @@
               <model>
                 <item value="+"/>
                 <item value="-"/>
-                <item value="/"/>
                 <item value="*"/>
+                <item value="/"/>
               </model>
             </properties>
           </component>
@@ -113,6 +113,7 @@
                   </grid>
                 </constraints>
                 <properties>
+                  <editable value="false"/>
                   <font size="16"/>
                   <text value=""/>
                 </properties>

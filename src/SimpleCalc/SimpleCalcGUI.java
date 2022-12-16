@@ -13,10 +13,19 @@ public class SimpleCalcGUI extends JFrame{
     private JPanel pnlMain2;
     SimpleCalcGUI() {
         btnCompute.addActionListener(e -> {
-            if(cbOperations.getSelectedItem() == "+") tfResult.setText(String.valueOf(Double.parseDouble(tfNumber1.getText()) + Double.parseDouble(tfNumber2.getText())));
-            else if(cbOperations.getSelectedItem() == "-") tfResult.setText(String.valueOf(Double.parseDouble(tfNumber1.getText()) - Double.parseDouble(tfNumber2.getText())));
-            else if(cbOperations.getSelectedItem() == "*") tfResult.setText(String.valueOf(Double.parseDouble(tfNumber1.getText()) * Double.parseDouble(tfNumber2.getText())));
-            else if(cbOperations.getSelectedItem() == "/") tfResult.setText(String.valueOf(Double.parseDouble(tfNumber1.getText()) / Double.parseDouble(tfNumber2.getText())));
+            try {
+                if(cbOperations.getSelectedItem() == "+") tfResult.setText(String.valueOf(Double.parseDouble(tfNumber1.getText()) + Double.parseDouble(tfNumber2.getText())));
+                else if(cbOperations.getSelectedItem() == "-") tfResult.setText(String.valueOf(Double.parseDouble(tfNumber1.getText()) - Double.parseDouble(tfNumber2.getText())));
+                else if(cbOperations.getSelectedItem() == "*") tfResult.setText(String.valueOf(Double.parseDouble(tfNumber1.getText()) * Double.parseDouble(tfNumber2.getText())));
+                else if(cbOperations.getSelectedItem() == "/") {
+                    if(Double.parseDouble(tfNumber2.getText()) == 0) throw new ArithmeticException("Undefined!");
+                    else tfResult.setText(String.valueOf(Double.parseDouble(tfNumber1.getText()) / Double.parseDouble(tfNumber2.getText())));
+                }
+            } catch(NumberFormatException n) {
+                JOptionPane.showMessageDialog(pnlMain, "Invalid Input");
+            } catch(ArithmeticException a) {
+                JOptionPane.showMessageDialog(pnlMain, a.getMessage());
+            }
         });
     }
     public static void main(String[] args) {
