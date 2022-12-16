@@ -27,19 +27,23 @@ public class FoodOrderGUI extends JFrame {
         b.add(rb10);
         b.add(rb15);
             btnOrder.addActionListener(e -> {
-               double total = 0;
-               if(cPizza.isSelected()) total += 100;
-               if(cBurger.isSelected()) total += 80;
-               if(cFries.isSelected()) total += 65;
-               if(cSoftDrinks.isSelected()) total += 55;
-               if(cTea.isSelected()) total += 50;
-               if(cSundae.isSelected()) total += 40;
+                try {
+                    double total = 0;
+                    if (cPizza.isSelected()) total += 100;
+                    if (cBurger.isSelected()) total += 80;
+                    if (cFries.isSelected()) total += 65;
+                    if (cSoftDrinks.isSelected()) total += 55;
+                    if (cTea.isSelected()) total += 50;
+                    if (cSundae.isSelected()) total += 40;
 
-                if (rb5.isSelected()) total -= total * 0.05;
-                else if (rb10.isSelected()) total -= total * 0.1;
-                else if (rb15.isSelected()) total -= total * 0.15;
+                    if (rb5.isSelected()) total -= total * 0.05;
+                    else if (rb10.isSelected()) total -= total * 0.1;
+                    else if (rb15.isSelected()) total -= total * 0.15;
 
-               JOptionPane.showMessageDialog(pnlMain, "The total price is Php " + String.format("%.2f", total));
+                    JOptionPane.showMessageDialog(pnlMain, "The total price is Php " + String.format("%.2f", total));
+                } catch (Exception ee) {
+                    System.out.println("An error occurred, please try again.");
+                }
         });
     }
     public static void main(String[] args){
