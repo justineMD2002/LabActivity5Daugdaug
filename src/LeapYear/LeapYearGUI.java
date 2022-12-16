@@ -17,14 +17,14 @@ public class LeapYearGUI extends JFrame {
                     else JOptionPane.showMessageDialog(pnlMain, "Not a Leap Year");
                 } else JOptionPane.showMessageDialog(pnlMain, "Not a Leap Year");
             } catch (NumberFormatException a) {
-                JOptionPane.showMessageDialog(pnlMain, "Invalid input!");
+                JOptionPane.showMessageDialog(pnlMain, "Invalid input! Please enter a valid year.");
             }
         });
     }
     public static void main(String[] args) {
         LeapYearGUI app = new LeapYearGUI();
         app.setContentPane(app.pnlMain);
-        app.setSize(700, 700);
+        app.setSize(500, 700);
         app.setDefaultCloseOperation(EXIT_ON_CLOSE);
         app.setTitle("Leap Year Checker");
         app.setVisible(true);
